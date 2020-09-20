@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Our Team</title>
+<!--Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+<!--CSS Stylesheet-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
+<!--Font awesome -->
+  <script defer src = "https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<!--Bootstrap Scripts-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/0e88a6ed81.js"></script>
+</head>
+    <body>
+
+<section id="team" class="pb-5" style="background-image: url({% static 'img/background1.jpg' %})">
+    <div class="container">
+        <h1 class="title">Putatoe Team</h1>
+        <div class="row">
+          {% for p in persons %}
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img src="{{ p.img_url }}" alt="Employee image"></p>
+                                    <h4 class="card-title">{{ p.name }}</h4>
+                                    <h5>{{ p.role }}</h5>
+                                    <p class="card-text">{{ p.desc }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">{{ p.name }}  <a class="social-icon text-xs-center" target="_blank" href="{{ p.linkedin_url }}">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a></h4>
+                                    <p class="card-text">{{ p.work_desc }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- Team -->
+    </body>
+</html>
